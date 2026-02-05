@@ -1,0 +1,42 @@
+# Backup files
+*.backup
+*.bak
+*~
+*.swp
+*.swo
+
+# Log files
+*.log
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+Thumbs.db
+
+# Archives
+*.tar
+*.tar.gz
+*.zip
+*.rar
+
+# Test outputs
+test_output/
+tmp/
+temp/
+
+# Personal notes
+notes.txt
+TODO.txt
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
