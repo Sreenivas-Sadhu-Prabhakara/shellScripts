@@ -70,7 +70,7 @@ perform_backup() {
     # Remove old backups (keep last 5)
     log "Cleaning up old backups (keeping last 5)..."
     cd "$BACKUP_DEST"
-    ls -t backup_*.tar.gz 2>/dev/null | tail -n +6 | xargs -r rm
+    find . -maxdepth 1 -name "backup_*.tar.gz" -type f | sort -r | tail -n +6 | xargs -r rm
     
     log "Backup process completed!"
 }

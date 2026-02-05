@@ -47,7 +47,7 @@ show_status() {
     git status --short
     echo ""
     echo -e "${YELLOW}Unpushed Commits:${NC}"
-    git log --oneline @{u}.. 2>/dev/null || echo "  No unpushed commits"
+    git log --oneline '@{u}..' 2>/dev/null || echo "  No unpushed commits"
 }
 
 # Sync with remote

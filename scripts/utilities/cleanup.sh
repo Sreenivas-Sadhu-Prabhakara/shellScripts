@@ -86,9 +86,9 @@ clean_temp_files() {
             FILE_COUNT=$((FILE_COUNT + 1))
             
             if [ "$DRY_RUN" = true ]; then
-                echo -e "${YELLOW}[DRY RUN] Would delete:${NC} $file ($(format_size $SIZE))"
+                echo -e "${YELLOW}[DRY RUN] Would delete:${NC} $file ($(format_size "$SIZE"))"
             else
-                echo -e "${GREEN}Deleting:${NC} $file ($(format_size $SIZE))"
+                echo -e "${GREEN}Deleting:${NC} $file ($(format_size "$SIZE"))"
                 rm -f "$file"
             fi
         done < <(find "$TARGET_DIR" -type f -name "$pattern" -mtime "+$DAYS_OLD" -print0 2>/dev/null)
@@ -115,9 +115,9 @@ clean_old_logs() {
         FILE_COUNT=$((FILE_COUNT + 1))
         
         if [ "$DRY_RUN" = true ]; then
-            echo -e "${YELLOW}[DRY RUN] Would delete:${NC} $file ($(format_size $SIZE))"
+            echo -e "${YELLOW}[DRY RUN] Would delete:${NC} $file ($(format_size "$SIZE"))"
         else
-            echo -e "${GREEN}Deleting:${NC} $file ($(format_size $SIZE))"
+            echo -e "${GREEN}Deleting:${NC} $file ($(format_size "$SIZE"))"
             rm -f "$file"
         fi
     done < <(find "$TARGET_DIR" -type f -name "*.log" -mtime "+$DAYS_OLD" -print0 2>/dev/null)

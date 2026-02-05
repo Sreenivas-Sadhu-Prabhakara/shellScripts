@@ -46,8 +46,6 @@ get_file_size() {
 # Function to rotate a single log file
 rotate_log() {
     local logfile="$1"
-    local basename=$(basename "$logfile")
-    local dirname=$(dirname "$logfile")
     
     echo -e "${YELLOW}Rotating:${NC} $logfile"
     
@@ -68,7 +66,7 @@ rotate_log() {
     if [ -f "$logfile" ]; then
         cp "$logfile" "${logfile}.1"
         gzip "${logfile}.1"
-        > "$logfile"  # Truncate the original log file
+        true > "$logfile"  # Truncate the original log file
         echo -e "${GREEN}  Created new rotation: ${logfile}.1.gz${NC}"
     fi
 }

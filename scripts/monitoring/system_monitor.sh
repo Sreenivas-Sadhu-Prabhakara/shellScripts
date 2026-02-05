@@ -41,7 +41,7 @@ show_cpu_usage() {
         top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print "CPU Usage: " 100 - $1"%"}'
     fi
     
-    echo -e "${GREEN}Load Average:${NC} $(cat /proc/loadavg | awk '{print $1" "$2" "$3}')"
+    echo -e "${GREEN}Load Average:${NC} $(awk '{print $1" "$2" "$3}' /proc/loadavg)"
     echo -e "${GREEN}CPU Cores:${NC} $(nproc)"
 }
 
