@@ -57,9 +57,7 @@ perform_backup() {
     
     # Create backup
     log "Creating backup archive: $BACKUP_NAME"
-    tar -czf "$BACKUP_DEST/$BACKUP_NAME" -C "$(dirname "$BACKUP_SOURCE")" "$(basename "$BACKUP_SOURCE")" 2>/dev/null
-    
-    if [ $? -eq 0 ]; then
+    if tar -czf "$BACKUP_DEST/$BACKUP_NAME" -C "$(dirname "$BACKUP_SOURCE")" "$(basename "$BACKUP_SOURCE")"; then
         BACKUP_SIZE=$(du -h "$BACKUP_DEST/$BACKUP_NAME" | cut -f1)
         log "Backup completed successfully!"
         log "Backup file: $BACKUP_DEST/$BACKUP_NAME"

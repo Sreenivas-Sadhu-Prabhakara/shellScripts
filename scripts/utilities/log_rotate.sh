@@ -58,7 +58,7 @@ rotate_log() {
         fi
     done
     
-    # Delete oldest rotation
+    # Delete oldest rotation (after shifting, rotation 6 is the oldest when keeping 5)
     if [ -f "${logfile}.$((KEEP_ROTATIONS + 1)).gz" ]; then
         rm -f "${logfile}.$((KEEP_ROTATIONS + 1)).gz"
         echo -e "${GREEN}  Deleted oldest rotation${NC}"

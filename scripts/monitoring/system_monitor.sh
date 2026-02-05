@@ -48,7 +48,9 @@ show_cpu_usage() {
 # Memory Usage
 show_memory_usage() {
     print_header "MEMORY USAGE"
-    free -h | awk 'NR==1{print $0} NR==2{printf "%s: %s/%s (%.2f%%)\n", $1, $3, $2, ($3/$2)*100}'
+    free -h
+    echo ""
+    free | awk 'NR==2{printf "Memory Usage: %.2f%%\n", ($3/$2)*100}'
     
     # Show top 5 memory consuming processes
     echo -e "\n${YELLOW}Top 5 Memory Consuming Processes:${NC}"
